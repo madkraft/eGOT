@@ -1,0 +1,34 @@
+package com.pwr.eGOT.routeManagement.service;
+
+import com.pwr.eGOT.routeManagement.dao.RouteDao;
+import com.pwr.eGOT.routeManagement.model.Route;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+@Service
+public class RouteService {
+
+    private final RouteDao routeDao;
+
+    @Autowired
+    public RouteService(@Qualifier("routeDao")RouteDao routeDao){
+        this.routeDao = routeDao;
+    }
+
+    public void addRoute(Route route){
+        routeDao.addRoute(route);
+    }
+
+    public List<Route> getAllRoutes(){
+        return routeDao.selectAllRoutes();
+    }
+
+    public Optional<Route> getRouteById(UUID id){
+        return routeDao.selectRouteById(id);
+    }
+}
