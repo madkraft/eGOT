@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from 'next/head'
-import Nav from '../components/nav'
+import MountainRanges from '../components/MountainRanges'
 
 const Home = () => {
   return <div>
-    Hello world!
+    <Head>
+      <title>Home</title>
+      <link href="/static/style.css" rel="stylesheet" />
+    </Head>
+
+    <MountainRanges/>
+    
   </div>
 }
-
 
 export default Home
