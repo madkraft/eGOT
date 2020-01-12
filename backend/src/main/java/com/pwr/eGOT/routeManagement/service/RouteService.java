@@ -31,4 +31,8 @@ public class RouteService {
     public Optional<Route> getRouteById(UUID id){
         return routeDao.selectRouteById(id);
     }
+
+    public int deleteRoute(UUID id) {return routeDao.deleteRouteById(id);}
+
+    public int updateRoute(UUID id, Route newRoute) {return routeDao.updateRouteById(id, newRoute);}
 }

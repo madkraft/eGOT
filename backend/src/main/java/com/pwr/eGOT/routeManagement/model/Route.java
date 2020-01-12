@@ -17,13 +17,14 @@ public class Route {
     private String finishPoint;
 
 
-    public Route(@JsonProperty("id") UUID regionId,
+    public Route(@JsonProperty("id") UUID id,
+                 @JsonProperty("regionId") UUID regionId,
                  @JsonProperty("length") int length,
                  @JsonProperty("climbTo") int climbTo,
                  @JsonProperty("climbFrom") int climbFrom,
                  @JsonProperty("startPoint") String startPoint,
                  @JsonProperty("finishPoint") String finishPoint) {
-        this.id = UUID.randomUUID();
+        this.id = id;
         this.regionId = regionId;
         this.length = length;
         this.climbTo = climbTo;
@@ -32,6 +33,7 @@ public class Route {
         this.finishPoint = finishPoint;
         calculatePoints();
     }
+
 
     public void calculatePoints(){
         pointsFrom = 10;

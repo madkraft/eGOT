@@ -36,13 +36,28 @@ public class RouteDataAccessService implements RouteDao{
     }
 
     @Override
-    public void deleteRouteById(UUID id) {
+    public int deleteRouteById(UUID id) {
+        Optional<Route> routeToDelete = selectRouteById(id);
+        if(routeToDelete.toString().isEmpty()){
 
+            return 0;
+        }
+        routes.remove(routeToDelete.get());
+        return 1;
     }
 
     @Override
-    public void updateRouteById(UUID id, Route route) {
-
+    public int updateRouteById(UUID id, Route update) {
+        return selectRouteById(id)
+                .map(route -> {
+                    int indexOfRouteToUpdate = routes.indexOf(route);
+                    if(indexOfRouteToUpdate >=0){
+                        routes.set(indexOfRouteToUpdate, new Route(id, update.getRegionId(), update.getLength(), update.getClimbTo(), update.getClimbFrom(), update.getStartPoint(), update.getFinishPoint()));
+                        return 1;
+                    }
+                    return 0;
+                })
+                .orElse(0);
     }
 
 }

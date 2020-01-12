@@ -13,6 +13,6 @@ public interface RouteDao {
     List<Route> selectRoutesByName(String name);
     List<Route> selectAllRoutes();
     void addRoute(Route route);
-    void deleteRouteById(UUID id);
-    void updateRouteById(UUID id, Route route);
+    int deleteRouteById(UUID id);
+    int updateRouteById(UUID id, Route route);
 }
