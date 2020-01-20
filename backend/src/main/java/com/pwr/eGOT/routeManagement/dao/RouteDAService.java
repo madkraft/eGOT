@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-//@Repository("postgres")
+@Repository("routePostgres")
 public class RouteDAService implements RouteDao {
     @Override
     public Optional<Route> selectRouteById(UUID id) {

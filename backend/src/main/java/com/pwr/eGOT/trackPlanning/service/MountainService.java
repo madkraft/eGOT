@@ -17,7 +17,7 @@ public class MountainService {
     private final MountainDao mountainDao;
 
     @Autowired
-    public MountainService(@Qualifier("mountDao") MountainDao mountainDao) {
+    public MountainService(@Qualifier("mountainPostgres") MountainDao mountainDao) {
         this.mountainDao = mountainDao;
     }
 

@@ -16,7 +16,7 @@ public class RouteService {
     private final RouteDao routeDao;
 
     @Autowired
-    public RouteService(@Qualifier("routeDao")RouteDao routeDao){
+    public RouteService(@Qualifier("routePostgres")RouteDao routeDao){
         this.routeDao = routeDao;
     }
 
