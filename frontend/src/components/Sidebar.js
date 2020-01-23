@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Route, Link, withRouter } from "react-router-d
 const StyledSideNav = styled.div`
   position: fixed;     /* Fixed Sidebar (stay in place on scroll and position relative to viewport) */
   height: 100%;
-  width: 75px;     /* Set the width of the sidebar */
+  width: 200px;     /* Set the width of the sidebar */
   z-index: 1;      /* Stay on top of everything */
   top: 3.4em;      /* Stay at the top */
-  background-color: #222; /* Black */
+  background-color: #292b2c; /* Black */
   overflow-x: hidden;     /* Disable horizontal scroll */
   padding-top: 10px;
 `;
@@ -22,19 +22,19 @@ class SideNav extends React.Component {
                 {
                     path: '/', /* path is used as id to check which NavItem is active basically */
                     name: 'Home',
-                    css: 'fa fa-fw fa-home',
+                    text: 'g',
                     key: 1 /* Key is required, else console throws error. Does this please you Mr. Browser?! */
                 },
                 {
                     path: '/about',
                     name: 'About',
-                    css: 'fa fa-fw fa-clock',
+                    text: 'ga',
                     key: 2
                 },
                 {
                     path: '/NoMatch',
                     name: 'NoMatch',
-                    css: 'fas fa-hashtag',
+                    text: 'gad',
                     key: 3,
                 },
             ]
@@ -48,13 +48,13 @@ class SideNav extends React.Component {
     render() {
         const { items, activePath } = this.state;
         return (
-            <StyledSideNav>
+            <StyledSideNav className="bg-dark">
                 {
                     /* items = just array AND map() loops thru that array AND item is param of that loop */
                     items.map((item) => {
                         /* Return however many NavItems in array to be rendered */
                         return (
-                            <NavItem path={item.path} name={item.name} css={item.css} onItemClick={this.onItemClick} /* Simply passed an entire function to onClick prop */ active={item.path === activePath} key={item.key} />
+                            <NavItem path={item.path} text= {item.text} name={item.name} onItemClick={this.onItemClick} active={item.path === activePath} key={item.key} />
                         )
                     })
                 }
@@ -66,8 +66,8 @@ class SideNav extends React.Component {
 const RouterSideNav = withRouter(SideNav);
 
 const StyledNavItem = styled.div`
-  height: 70px;
-  width: 75px; /* width must be same size as NavBar to center */
+  height: 75px;
+  width: 200px; /* width must be same size as NavBar to center */
   text-align: center; /* Aligns <a> inside of NavIcon div */
   margin-bottom: 0;   /* Puts space between NavItems */
   a {
@@ -91,8 +91,8 @@ class NavItem extends React.Component {
         const { active } = this.props;
         return (
             <StyledNavItem active={active}>
-                <Link to={this.props.path} className={this.props.css} onClick={this.handleClick}>
-                    <NavIcon></NavIcon>
+                <Link to={this.props.path} onClick={this.handleClick}>
+                    <NavIcon>{this.props.text}</NavIcon>
                 </Link>
             </StyledNavItem>
         );

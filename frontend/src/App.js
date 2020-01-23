@@ -4,6 +4,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { NavigationBar } from './components/NavigationBar';
 import Sidebar from './components/Sidebar';
+import { SideMenu } from './components/SideMenu';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { NoMatch } from './pages/NoMatch';
@@ -22,6 +23,8 @@ import {
   MenuOptionGroup,
   MenuItemOption,
 } from "@chakra-ui/core";
+import { Regulations } from './pages/Regulations';
+import { Account } from './pages/Account';
 
 // function App() {
 //   return (
@@ -64,11 +67,11 @@ class App extends Component {
       <React.Fragment>
         <Router>
           <NavigationBar />
-          <Sidebar />
+          <SideMenu />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
-            <Route component={NoMatch} />
+            <Route path="/regulamin" component={Regulations} />
+            <Route path="/konto" component={Account} />
           </Switch>
         </Router>
       </React.Fragment>
