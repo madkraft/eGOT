@@ -30,4 +30,9 @@ public class MountainController {
     public List<Region> getRegionsByMountainId(@PathVariable String id){
         return mountainService.getRegionsByMountainId(UUID.fromString(id));
     }
+
+    @GetMapping("/regions")
+    public List<Region> getAllRegions(){
+        return mountainService.getAllRegions();
+    }
 }

@@ -19,13 +19,13 @@ public class RouteDataAccessService implements RouteDao{
     }
 
     @Override
-    public List<Route> selectRoutesByName(String name) {
-        return null;
+    public List<Route> selectAllRoutes() {
+        return routes;
     }
 
     @Override
-    public List<Route> selectAllRoutes() {
-        return routes;
+    public List<Route> selectRouteByRegionId(UUID id) {
+        return null;
     }
 
 
@@ -52,7 +52,7 @@ public class RouteDataAccessService implements RouteDao{
                 .map(route -> {
                     int indexOfRouteToUpdate = routes.indexOf(route);
                     if(indexOfRouteToUpdate >=0){
-                        routes.set(indexOfRouteToUpdate, new Route(id, update.getRegionId(), update.getLength(), update.getClimbTo(), update.getClimbFrom(), update.getStartPoint(), update.getFinishPoint()));
+                        routes.set(indexOfRouteToUpdate, new Route(id, update.getRegionId(), update.getLength(), update.getClimbPK(), update.getClimbKP(), update.getStartPoint(), update.getFinishPoint(), update.getPointsPK(), update.getPointsKP(),update.getDescription()));
                         return 1;
                     }
                     return 0;

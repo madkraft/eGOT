@@ -9,35 +9,42 @@ public class Route {
     private final UUID id;
     private final UUID regionId;
     private int length;
-    private int pointsTo;
-    private int pointsFrom;
-    private int climbTo;
-    private int climbFrom;
+    private int pointsPK;
+    private int pointsKP;
+    private int climbPK;
+    private int climbKP;
     private String startPoint;
     private String finishPoint;
+    private String description;
 
 
     public Route(@JsonProperty("id") UUID id,
                  @JsonProperty("regionId") UUID regionId,
                  @JsonProperty("length") int length,
-                 @JsonProperty("climbTo") int climbTo,
-                 @JsonProperty("climbFrom") int climbFrom,
+                 @JsonProperty("climbPK") int climbPK,
+                 @JsonProperty("climbKP") int climbKP,
                  @JsonProperty("startPoint") String startPoint,
-                 @JsonProperty("finishPoint") String finishPoint) {
+                 @JsonProperty("finishPoint") String finishPoint,
+                 @JsonProperty("pointsPK") int pointsPK,
+                 @JsonProperty("pointsKP") int pointsKP,
+                 @JsonProperty("description") String description){
         this.id = id;
         this.regionId = regionId;
         this.length = length;
-        this.climbTo = climbTo;
-        this.climbFrom = climbFrom;
+        this.climbPK = climbPK;
+        this.climbKP = climbKP;
         this.startPoint = startPoint;
         this.finishPoint = finishPoint;
-        calculatePoints();
+        this.pointsPK = pointsPK;
+        this.pointsKP = pointsKP;
+        this.description = description;
+
     }
 
 
     public void calculatePoints(){
-        pointsFrom = 10;
-        pointsTo = 15;
+        pointsKP = 10;
+        pointsPK = 15;
     }
 
     public UUID getId() {
@@ -56,36 +63,36 @@ public class Route {
         this.length = length;
     }
 
-    public int getPointsTo() {
-        return pointsTo;
+    public int getPointsPK() {
+        return pointsPK;
     }
 
-    public void setPointsTo(int pointsTo) {
-        this.pointsTo = pointsTo;
+    public void setPointsPK(int pointsPK) {
+        this.pointsPK = pointsPK;
     }
 
-    public int getPointsFrom() {
-        return pointsFrom;
+    public int getPointsKP() {
+        return pointsKP;
     }
 
-    public void setPointsFrom(int pointsFrom) {
-        this.pointsFrom = pointsFrom;
+    public void setPointsKP(int pointsKP) {
+        this.pointsKP = pointsKP;
     }
 
-    public int getClimbTo() {
-        return climbTo;
+    public int getClimbPK() {
+        return climbPK;
     }
 
-    public void setClimbTo(int climbTo) {
-        this.climbTo = climbTo;
+    public void setClimbPK(int climbPK) {
+        this.climbPK = climbPK;
     }
 
-    public int getClimbFrom() {
-        return climbFrom;
+    public int getClimbKP() {
+        return climbKP;
     }
 
-    public void setClimbFrom(int climbFrom) {
-        this.climbFrom = climbFrom;
+    public void setClimbKP(int climbKP) {
+        this.climbKP = climbKP;
     }
 
     public String getStartPoint() {
@@ -104,18 +111,27 @@ public class Route {
         this.finishPoint = finishPoint;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
         return "Route{" +
                 "id=" + id +
                 ", regionId=" + regionId +
                 ", length=" + length +
-                ", pointsTo=" + pointsTo +
-                ", pointsFrom=" + pointsFrom +
-                ", climbTo=" + climbTo +
-                ", climbFrom=" + climbFrom +
+                ", pointsPK=" + pointsPK +
+                ", pointsKP=" + pointsKP +
+                ", climbPK=" + climbPK +
+                ", climbKP=" + climbKP +
                 ", startPoint='" + startPoint + '\'' +
                 ", finishPoint='" + finishPoint + '\'' +
+                ", description='" + description +
                 '}';
     }
 }

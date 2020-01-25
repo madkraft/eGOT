@@ -10,8 +10,8 @@ public interface RouteDao {
 
 
     Optional<Route> selectRouteById(UUID id);
-    List<Route> selectRoutesByName(String name);
     List<Route> selectAllRoutes();
+    List<Route> selectRouteByRegionId(UUID id);
     void addRoute(Route route);
     int deleteRouteById(UUID id);
     int updateRouteById(UUID id, Route route);

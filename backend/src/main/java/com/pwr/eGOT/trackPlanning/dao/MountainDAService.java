@@ -32,12 +32,27 @@ public class MountainDAService implements MountainDao {
     }
 
     @Override
-    public List<Region> selectRegionsByMountainId(UUID id) {
-        return null;
+    public List<Region> selectRegionsByMountainId(UUID mountainId) {
+        String sql = "SELECT id, region_name, mountain_id FROM regions  WHERE mountain_id = ?";
+        List<Region> regions = jdbcTemplate.query(sql, new Object[]{mountainId}, (resultSet, i) -> {
+            UUID id = UUID.fromString(resultSet.getString("id"));
+            String name = resultSet.getString("region_name");
+            UUID mId = UUID.fromString(resultSet.getString("mountain_id"));
+            return new Region (id, name, mId);
+        });
+        return regions;
     }
 
     @Override
-    public List<Route> selectRoutesByRegionId(UUID id) {
-        return null;
+    public List<Region> selectAllRegions() {
+        String sql = "SELECT id,   region_name, mountain_id FROM regions";
+        List<Region> regions = jdbcTemplate.query(sql, (resultSet, i) -> {
+            UUID id = UUID.fromString(resultSet.getString("id"));
+            String name = resultSet.getString("region_name");
+            UUID mId = UUID.fromString(resultSet.getString("mountain_id"));
+            return new Region (id, name, mId);
+        });
+        return regions;
     }
+
 }

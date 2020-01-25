@@ -45,7 +45,8 @@ public class MountainDataAccessService implements MountainDao {
     }
 
     @Override
-    public List<Route> selectRoutesByRegionId(UUID id) {
-        return routes.stream().filter(route -> route.getRegionId().equals(id)).collect(Collectors.toList());
+    public List<Region> selectAllRegions() {
+        return null;
     }
+
 }

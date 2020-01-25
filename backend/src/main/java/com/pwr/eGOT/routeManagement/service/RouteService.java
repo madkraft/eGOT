@@ -28,6 +28,10 @@ public class RouteService {
         return routeDao.selectAllRoutes();
     }
 
+    public List<Route> getRoutesByRegionId(UUID id){
+        return routeDao.selectRouteByRegionId(id);
+    }
+
     public Optional<Route> getRouteById(UUID id){
         return routeDao.selectRouteById(id);
     }

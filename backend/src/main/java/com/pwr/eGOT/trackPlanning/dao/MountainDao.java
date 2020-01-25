@@ -11,5 +11,5 @@ public interface MountainDao {
 
     List<Mountain> selectAllMountains();
     List<Region> selectRegionsByMountainId(UUID id);
-    List<Route> selectRoutesByRegionId(UUID id);
+    List<Region> selectAllRegions();
 }

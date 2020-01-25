@@ -23,11 +23,11 @@ public class RouteController {
         this.routeService = routeService;
     }
 
-    @PostMapping
-    public void addRoute(@Valid @NonNull @RequestBody Route route){ routeService.addRoute(route);}
-
     @GetMapping
     public List<Route> getAllRoutes() { return routeService.getAllRoutes(); }
+
+    @GetMapping(path="region/{regionId}")
+    public List<Route> getRoutesByRegionId(@PathVariable("regionId") UUID id) { return routeService.getRoutesByRegionId(id); }
 
     @GetMapping("/{id}")
     public Route getRouteById(@PathVariable("id") UUID id){
@@ -40,6 +40,7 @@ public class RouteController {
     @PutMapping("/{id}")
     public void updateRoute(@PathVariable("id") UUID id, @Valid @NonNull @RequestBody Route routeToUpdate) {routeService.updateRoute(id,routeToUpdate);}
 
-
+    @PostMapping
+    public void addRoute(@Valid @NonNull @RequestBody Route route){ routeService.addRoute(route);}
 
 }

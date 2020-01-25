@@ -32,3 +32,4 @@ export const Regulations = () => (
         </Nav>
     </StyledRegulationsNav>
 )
+

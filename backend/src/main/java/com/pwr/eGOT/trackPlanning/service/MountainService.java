@@ -29,6 +29,10 @@ public class MountainService {
         return mountainDao.selectRegionsByMountainId(id);
     }
 
+    public List<Region> getAllRegions(){
+        return mountainDao.selectAllRegions();
+    }
+
 
 
 }
