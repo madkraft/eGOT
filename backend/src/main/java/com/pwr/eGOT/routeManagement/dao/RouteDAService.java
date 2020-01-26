@@ -55,7 +55,7 @@ public class RouteDAService implements RouteDao {
             int podejscie_kp = resultSet.getInt("podejscie_kp");
             String opis = resultSet.getString("opis");
 
-            return new Route (id, rId, dlugosc, punktacja_pk, punktacja_kp, pkt_poczatkowy, pkt_koncowy, podejscie_pk, podejscie_kp, opis);
+            return new Route (id, rId, dlugosc, podejscie_pk, podejscie_kp, pkt_poczatkowy, pkt_koncowy, punktacja_pk, punktacja_kp,  opis);
         });
         return routes;
     }
@@ -75,7 +75,7 @@ public class RouteDAService implements RouteDao {
             int podejscie_kp = resultSet.getInt("podejscie_kp");
             String opis = resultSet.getString("opis");
 
-            return new Route (id, rId, dlugosc, punktacja_pk, punktacja_kp, pkt_poczatkowy, pkt_koncowy, podejscie_pk, podejscie_kp, opis);
+            return new Route (id, rId, dlugosc, podejscie_pk, podejscie_kp, pkt_poczatkowy, pkt_koncowy, punktacja_pk, punktacja_kp,  opis);
         });
         return routes;
     }

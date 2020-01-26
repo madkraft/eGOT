@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav, NavDropdown } from 'react-bootstrap';
+import { Link } from "react-router-dom"
 import styled from 'styled-components';
 const StyledMenu = styled.div`
   position: fixed;     /* Fixed Sidebar (stay in place on scroll and position relative to viewport) */
@@ -30,7 +31,13 @@ export const SideMenu = () => (
           <NavDropdown.Divider />
           <Nav.Item ><Nav.Link href="/zaplanujTrase">Zaplanuj trasę</Nav.Link></Nav.Item>
           <Nav.Item><Nav.Link href="/zatwierdzTrase">Potwierdź trasę</Nav.Link></Nav.Item>
-          <Nav.Item><Nav.Link href="/odcinki">Informacje o odcinkach</Nav.Link></Nav.Item>
+          <Nav.Item><Nav.Link href="/odcinki2">Informacje o odcinkach</Nav.Link></Nav.Item>
+          <Nav.Item>
+            <Nav>
+              <Link to="/odcinki">
+Informacje o odcinkach
+              </Link>
+              </Nav></Nav.Item>
           <NavDropdown.Divider />
           <Nav.Item ><Nav.Link href="/zarzadzanieOdcinkami">Zarządzanie odcinkami</Nav.Link></Nav.Item>
       </Nav>
