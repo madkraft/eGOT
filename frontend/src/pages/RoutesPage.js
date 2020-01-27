@@ -1,18 +1,6 @@
 import React, { Component } from "react";
 import { RegionCard } from "../components/RegionCard";
-import {
-  SimpleGrid,
-  Box,
-  Spinner,
-  Button,
-  Menu,
-  MenuItem,
-  MenuList,
-  MenuButton,
-  Heading,
-  Text,
-  Stack
-} from "@chakra-ui/core";
+import { SimpleGrid, Box, Spinner, Heading, Stack } from "@chakra-ui/core";
 import { fetchMountainRanges, fetchRegions, fetchRoutes } from "../utils/api";
 
 export class RoutesPage extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { Button, Stack, Link, Box } from "@chakra-ui/core";
+import { Button, Stack, Box } from "@chakra-ui/core";
 
 const menuItem = [
   { text: "Moje konto", path: "/konto" },
@@ -21,9 +21,9 @@ export default class SideNav extends Component {
               <NavLink
                 to={item.path}
                 style={{ textDecoration: "none" }}
-                activeStyle={{ color: "red" }}
+                activeClassName="menu-selected"
               >
-                <Button variant="outline" width="100%">
+                <Button variant="outline" width="100%" className="nav-button">
                   {item.text}
                 </Button>
               </NavLink>

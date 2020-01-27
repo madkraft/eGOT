@@ -1,20 +1,7 @@
 import React, { Component } from "react";
-import { Formik } from "formik";
 import { AddForm } from "../components/AddForm";
 import { fetchMountainRanges, fetchRegions, fetchRoutes } from "../utils/api";
-import {
-  FormControl,
-  FormLabel,
-  FormHelperText,
-  Select,
-  Input,
-  Tabs,
-  Tab,
-  TabList,
-  TabPanels,
-  TabPanel,
-  Box
-} from "@chakra-ui/core";
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from "@chakra-ui/core";
 
 export class RouteManagement extends Component {
   constructor(props) {
